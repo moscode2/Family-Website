@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcb765;
+        }
+        header {
+            background-color: #b5d2b5;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: right;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background-color: #f56a79;
+            color: white;
+            border: none;
+            padding: 17px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .children-section {
+            background-color: #fef6dd;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .children-section h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .children img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .children img:hover {
+            transform: scale(1.08);
+        }
+
+        .children {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* NEW STYLE FOR HADRIAN & FAVOUR PHOTO COLLAGE */
+        .photo-collage {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 810px; /* 400px * 2 + 10px gap */
+            margin: 0 auto 30px;
+        }
+
+        .photo-collage img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-collage img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Optional: Add a subtle divider between the two images */
+        .photo-collage::after {
+            content: "";
+            position: absolute;
+            height: 380px;
+            width: 2px;
+            background-color: #f56a79;
+            opacity: 0.5;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 850px) {
+            .photo-collage {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .photo-collage::after {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                background-color: #444;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .children img, 
+            .photo-collage img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RAJORE FAMILY</h1>
+    </header>
+    <nav>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <ul id="nav-list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="parents.html">PARENTS</a></li>
+        <li><a href="children.html">CHILDREN</a></li>
+        <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
+        
+    </ul>
+</nav>
+    <div class="container">
+        <div class="section">
+            <section class="children-section">
+                <h2>OUR LEGACY IN BLOOM</h2>
+                <p>The grandchildren represent the continuity of the Rajore legacy, carrying forward our traditions and values. This page is dedicated to their laughter, curiosity, and accomplishments. Watch them thrive and keep the Rajore spirit alive for generations to come.</p>
+                
+                <div class="Children">
+                    <div class="Henry's Sons">
+                        <h3>LEON & LIAM</h3>
+                        <p>Two adorable boys from our elder brother—always bringing joy wherever they go.</p>
+                        <img src="images/LEON.jpg" alt="Leon and Liam">
+                    </div>
+                    
+                    <div class="Children">
+                        <div class="Linnet's Daughters">
+                            <h3>HADRIAN & FAVOUR</h3>
+                            <p>Sweet angels from Linnet's family. Hadrian holds a special place as our parents' first granddaughter.</p>
+                            <!-- NEW PHOTO COLLAGE -->
+                            <div class="photo-collage">
+                                <img src="images/hadrian.JPG" alt="Hadrian">
+                                <img src="images/Favour.JPG" alt="Favour">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Children">
+                        <div class="Ann's Son">
+                            <h3>AIDEN</h3> 
+                            <p>This is Aiden—always radiating joy and laughter in every photo.</p>
+                            <img src="images/mark.JPG" alt="Aiden">   
+                        </div>
+                    </div>
+                    
+                    <div class="Children">
+                        <div class="Emmaculate's Children">
+                            <h3>TALIA & TAIRAN</h3>
+                            <p>Meet Talia and Tairan—beautiful souls whose charm shines right through the picture.</p>
+                            <div class="photo-collage">
+                                <img src="images/TA.jpg" alt="Talia">
+                                <img src="images/Adera.jpg" alt="Adera">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="Children">
+                        <div class="Selline's Children">
+                            <h3>STANLEY & AURELLIA</h3>
+                            <p>Always full of warmth and smiles—truly ever-welcoming.</p>
+                            <img src="images/Aurellia.JPG" alt="Stanley and Aurellia">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-map-marker"></i> 232 Funyula</p>
+                <p><i class="fa fa-phone"></i> +254791936043</p>
+                <p><i class="fa fa-envelope"></i> rajorefamily01@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="parents.html">Parents</a>
+                <a href="children.html">Children</a>
+                <a href="grandchildren.html">Grandchildren</a>
+            </div>
+        </div>
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
+        
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

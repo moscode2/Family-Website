@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rajore Family - Parents</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcb765;
+        }
+        header {
+            background-color: #b5d2b5;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: right;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 5px;
+        }
+        
+        nav a.active {
+            color: #f56a79;
+            border-bottom: 2px solid #f56a79;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .parents-heading {
+            text-align: center;
+            padding: 20px;
+            background-color: #fdf6e3;
+            margin: 20px 0;
+        }
+
+        .about-section {
+            background-color: #fdf6e3;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .room-section {
+            background-color: #fdf6e3;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .room-section h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .photo-room {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .photo-room img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-room img:hover {
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                background-color: #444;
+                padding: 10px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .photo-room img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            border-bottom: 1px solid #f56a79;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column p {
+            margin: 5px 0;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RAJORE FAMILY</h1>
+    </header>
+    
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="parents.html" class="active">PARENTS</a></li>
+            <li><a href="children.html">CHILDREN</a></li>
+            <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
+        </ul>
+    </nav>
+    
+    <div class="parents-heading">
+        <h1>THE PILLARS OF OUR FAMILY</h1>
+    </div>
+    
+    <div class="container">
+        <section class="about-section">
+            <p>Our parents are the foundation of the Rajore family, guiding us with wisdom, love, and resilience. Here, we celebrate their journey, honor their sacrifices, and share their stories. Explore cherished memories, learn from their life lessons, and feel the warmth of their unwavering support.</p>
+        </section>
+        
+        <section class="room-section">
+            <h2>A SPECIAL ROOM FOR BEAUTIFUL MEMORIES</h2>
+            <div class="photo-room">
+                <img src="images/jaduong.JPG" alt="Memory photo 1">
+                <img src="images/mum.JPG" alt="Memory photo 2">
+            </div>
+        </section>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-map-marker"></i> 232 Funyula</p>
+                <p><i class="fa fa-phone"></i> +254791936043</p>
+                <p><i class="fa fa-envelope"></i> rajorefamily01@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="parents.html">Parents</a>
+                <a href="children.html">Children</a>
+                <a href="grandchildren.html">Grandchildren</a>
+            </div>
+        </div>
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
+        
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
