@@ -81,7 +81,7 @@ nav ul li a:hover, .nav-button:hover {
 /* Description styling section */
 .description-section {
     padding: 2rem;
-    background-image:url('images/Dad.JPG'); /*path to your background image*/
+    background-image:url('../images/Dad.JPG'); /*path to your background image*/
     background-size: cover;
     background-position: center;
     color: white;
