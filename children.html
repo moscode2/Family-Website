@@ -221,7 +221,7 @@
                 <div class="child-card">
                     <h3>ANN</h3>
                     <p>Third born, a skilled lab technician contributing to the field of medical sciences.</p>
-                    <img src="images/nyar.JPG" alt="Ann">
+                    <img src="images/nyar.jpg" alt="Ann">
                 </div>
                 
                 <div class="child-card">
@@ -278,6 +278,18 @@
     </footer>
     
     <script>
+        {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" }
+  ]
+}
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
             navList.classList.toggle('show');
