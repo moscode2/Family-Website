@@ -216,8 +216,8 @@
         <section class="room-section">
             <h2>A SPECIAL ROOM FOR BEAUTIFUL MEMORIES</h2>
             <div class="photo-room">
-                <img src="./images/jaduong.JPG" alt="Memory photo 1">
-                <img src="./images/mum.JPG" alt="Memory photo 2">
+                <img src="./images/jaduong.jpg" alt="Memory photo 1">
+                <img src="./images/mum.jpg" alt="Memory photo 2">
             </div>
         </section>
     </div>
@@ -242,6 +242,18 @@
     </footer>
     
     <script>
+        {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" }
+  ]
+}
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
             navList.classList.toggle('show');
