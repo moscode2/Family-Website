@@ -156,6 +156,18 @@
 </footer>
 
 <script>
+    {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" }
+  ]
+}
     function toggleMenu() {
         const navList = document.getElementById('nav-list');
         navList.classList.toggle('show');
