@@ -217,8 +217,8 @@
                             <p>Sweet angels from Linnet's family. Hadrian holds a special place as our parents' first granddaughter.</p>
                             <!-- NEW PHOTO COLLAGE -->
                             <div class="photo-collage">
-                                <img src="images/hadrian.JPG" alt="Hadrian">
-                                <img src="images/Favour.JPG" alt="Favour">
+                                <img src="images/hadrian.jpg" alt="Hadrian">
+                                <img src="images/Favour.jpg" alt="Favour">
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                         <div class="Ann's Son">
                             <h3>AIDEN</h3> 
                             <p>This is Aiden—always radiating joy and laughter in every photo.</p>
-                            <img src="images/mark.JPG" alt="Aiden">   
+                            <img src="images/mark.jpg" alt="Aiden">   
                         </div>
                     </div>
                     
@@ -247,7 +247,7 @@
                         <div class="Selline's Children">
                             <h3>STANLEY & AURELLIA</h3>
                             <p>Always full of warmth and smiles—truly ever-welcoming.</p>
-                            <img src="images/Aurellia.JPG" alt="Stanley and Aurellia">
+                            <img src="images/Aurellia.jpg" alt="Stanley and Aurellia">
                         </div>
                     </div>
                 </div>
@@ -276,6 +276,18 @@
     </footer>
     
     <script>
+        {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" }
+  ]
+}
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
             navList.classList.toggle('show');
