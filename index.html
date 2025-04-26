@@ -3,187 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Project</title>
+    <title>The Rajore Family</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-         body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #dcb765;
-    }
-    header {
-            background-color: #b5d2b5;
-            color: white;
-            padding: 1rem;
-            text-align: left;
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5e9;
+            color: #333;
+            line-height: 1.6;
         }
+        
+        header {
+            background: linear-gradient(135deg, #b5d2b5 0%, #8cb48c 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
         nav {
             background-color: #444;
             color: white;
             text-align: center;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
+        
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: right;
+            justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         nav li {
-            display: inline;
             margin: 0 15px;
         }
+        
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            padding: 15px 10px;
+            display: block;
+            transition: all 0.3s ease;
         }
-
-        .nav-button {
+        
+        nav a:hover {
             background-color: #f56a79;
-            color: white;
-            border: none;
-            padding: 17px 20px;
-            cursor: pointer;
-            font-weight: bold;
+            transform: translateY(-3px);
         }
-
+        
         .menu-icon {
             display: none;
             font-size: 30px;
             cursor: pointer;
             position: absolute;
-            right: 10px;
-            top: 10px;
+            right: 20px;
+            top: 15px;
         }
-
+        
+        /* Welcome Section */
+        .description-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('images/family-pattern.png') center/cover;
+        }
+        
+        .description-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .description-text {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .description-text h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .description-text h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: #f56a79;
+        }
+        
+        .description-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #34495e;
+        }
+        
+        .description-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .description-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .description-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #333 0%, #222 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin: 1rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: #f56a79;
+            border-bottom: 2px solid #f56a79;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            display: block;
+            margin: 8px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #f56a79;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
             nav ul {
                 flex-direction: column;
                 display: none;
-                background-color: #444;}
-
+                background-color: #444;
+            }
+            
             nav ul.show {
                 display: flex;
             }
+            
             nav li {
-                display: block;
-                margin: 10px 0;
+                margin: 0;
             }
-
+            
+            nav a {
+                padding: 12px;
+            }
+            
             .menu-icon {
                 display: block;
             }
-        }
-
-        .container {
-            padding: 20px;
-            img.half-size {
-    width: 50%; /* Shrinks image to half its original width */
-    height: auto; /* Keeps aspect ratio */
-        }
-    }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
+            
+            .description-container {
+                flex-direction: column;
+            }
+            
+            .description-text, .description-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .description-text {
+                padding: 1rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
-    </head>
-    <body>
-        <header>
+</head>
+<body>
+    <header>
         <h1>THE RAJORE FAMILY</h1>
-            <header>
-                <nav>
-                    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-                    <ul id="nav-list">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="parents.html">PARENTS</a></li>
-                        <li><a href="children.html">CHILDREN</a></li>
-                        <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
-                    </ul>
-                </nav>
-<!-- Description section -->
-<section class="description-section">
-    <div class="description-container">
-    <div class="description-text">
-        <h2>WELCOME TO RAJORE FAMILY WEBSITE!</h2>
-        <p>
-            Discover the rich history, vibrant present, and bright future of the Rajore family. This site is a place for connection, sharing, and celebrating our shared heritage
-        </p>
-        <p>
-            Whether you're a lifelong member or newly discovering your roots, you're part of our story. Let’s keep our family bonds strong across generations!
-        </p>
-    </div>
-    <div class="description-image">
-        <img src="../images/families.jpg" alt="Description image">
-                       
-        </div>
-    </div>
-</section>
-<!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p><i class="fa fa-map-marker"></i> 232 Funyula</p>
-            <p><i class="fa fa-phone"></i> +254791936043</p>
-            <p><i class="fa fa-envelope"></i> rajorefamily01@gmail.com</p>
-        </div>
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <a href="index.html">Home</a>
-            <a href="parents.html">Parents</a>
-            <a href="children.html">Children</a>
-            <a href="grandchildren.html">Grandchildren</a>
-        </div>
-    </div>
-    <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
-</footer>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-list">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="parents.html">PARENTS</a></li>
+                <li><a href="children.html">CHILDREN</a></li>
+                <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<script>
-    {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/images/(.*)", "dest": "/images/$1" }
-  ]
-}
-    function toggleMenu() {
-        const navList = document.getElementById('nav-list');
-        navList.classList.toggle('show');
-    }
-    
-    // Highlight current page in navigation
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentPage = location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('nav a');
+    <!-- Welcome Section -->
+    <section class="description-section">
+        <div class="description-container">
+            <div class="description-text">
+                <h2>Welcome to Our Family Legacy</h2>
+                <p>
+                    Step into the heart of the Rajore family story - where cherished memories intertwine with 
+                    future dreams. Our digital home celebrates generations of love, laughter, and shared history.
+                </p>
+                <p>
+                    <strong>Discover</strong> our roots • <strong>Connect</strong> with relatives worldwide • 
+                    <strong>Celebrate</strong> our collective journey
+                </p>
+                <p>
+                    Whether you're tracing your lineage or strengthening family bonds, you belong here. 
+                    Together, we're writing the next chapter of our family's extraordinary story.
+                </p>
+            </div>
+            <div class="description-image">
+                <img src="images/families.jpg" alt="Rajore family gathering">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-map-marker"></i> 232 Funyula</p>
+                <p><i class="fa fa-phone"></i> +254791936043</p>
+                <p><i class="fa fa-envelope"></i> rajorefamily01@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="parents.html">Parents</a>
+                <a href="children.html">Children</a>
+                <a href="grandchildren.html">Grandchildren</a>
+            </div>
+            <div class="footer-column">
+                <h3>Family Values</h3>
+                <p>Unity • Love • Respect • Tradition • Growth</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
         
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
