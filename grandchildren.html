@@ -3,259 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Project</title>
-    <link rel="stylesheet" href="style.css">
+    <title>The Rajore Family - Children</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        :root {
+            --primary: #b5d2b5;
+            --secondary: #f56a79;
+            --light: #fef6dd;
+            --dark: #333;
+            --accent: #dcb765;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #dcb765;
+            background-color: #f8f5e9;
+            color: #333;
+            line-height: 1.6;
         }
+        
         header {
-            background-color: #b5d2b5;
+            background: linear-gradient(135deg, var(--primary) 0%, #8cb48c 100%);
             color: white;
             padding: 1rem;
-            text-align: left;
-        }
-
-        nav {
-            background-color: #444;
-            color: white;
             text-align: center;
-            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: right;
+            justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         nav li {
-            display: inline;
-            margin: 0 15px;
+            margin: 0;
         }
+        
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
         }
-
-        .nav-button {
-            background-color: #f56a79;
+        
+        nav a:hover, nav a.active {
+            background-color: var(--secondary);
             color: white;
-            border: none;
-            padding: 17px 20px;
-            cursor: pointer;
-            font-weight: bold;
         }
-
+        
         .menu-icon {
             display: none;
-            font-size: 30px;
+            font-size: 1.8rem;
             cursor: pointer;
-            position: absolute;
-            right: 10px;
-            top: 10px;
+            padding: 10px;
+            color: white;
         }
-        .children-section {
-            background-color: #fef6dd;
-            padding: 50px 20px;
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
             text-align: center;
+            margin-bottom: 2.5rem;
         }
-
-        .children-section h2 {
-            font-size: 30px;
-            margin-bottom: 30px;
-            color: #222;
+        
+        .page-header h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
-
-        .children img {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .children img:hover {
-            transform: scale(1.08);
-        }
-
-        .children {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        /* NEW STYLE FOR HADRIAN & FAVOUR PHOTO COLLAGE */
-        .photo-collage {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            max-width: 810px; /* 400px * 2 + 10px gap */
-            margin: 0 auto 30px;
-        }
-
-        .photo-collage img {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .photo-collage img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Optional: Add a subtle divider between the two images */
-        .photo-collage::after {
+        
+        .page-header h2::after {
             content: "";
             position: absolute;
-            height: 380px;
-            width: 2px;
-            background-color: #f56a79;
-            opacity: 0.5;
-            margin-top: 10px;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
         }
-
-        @media screen and (max-width: 850px) {
-            .photo-collage {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            .photo-collage::after {
-                display: none;
-            }
+        
+        .page-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
         }
-
-        @media screen and (max-width: 768px) {
+        
+        /* Family Members Grid */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .family-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .family-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .family-img-container {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .family-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .family-card:hover .family-img-container img {
+            transform: scale(1.05);
+        }
+        
+        .family-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .family-info h3 {
+            margin: 0 0 0.5rem;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+        
+        .family-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Photo Pair Styling */
+        .photo-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .photo-pair img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-pair img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #222 100%);
+            color: white;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-column {
+            padding: 0 1rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin: 0.7rem 0;
+            display: block;
+        }
+        
+        .footer-column a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
                 display: none;
-                background-color: #444;
             }
-
+            
             nav ul.show {
                 display: flex;
             }
-
-            nav li {
-                display: block;
-                margin: 10px 0;
-            }
-
+            
             .menu-icon {
                 display: block;
             }
-
-            .children img, 
-            .photo-collage img {
-                width: 300px;
-                height: 300px;
+            
+            .photo-pair {
+                grid-template-columns: 1fr;
+            }
+            
+            .family-img-container {
+                height: 180px;
             }
         }
-
-        .container {
-            padding: 20px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .page-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            .family-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>THE RAJORE FAMILY</h1>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-list">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="parents.html">PARENTS</a></li>
+                <li><a href="children.html" class="active">CHILDREN</a></li>
+                <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <ul id="nav-list">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="parents.html">PARENTS</a></li>
-        <li><a href="children.html">CHILDREN</a></li>
-        <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
-        
-    </ul>
-</nav>
+
     <div class="container">
-        <div class="section">
-            <section class="children-section">
-                <h2>OUR LEGACY IN BLOOM</h2>
-                <p>The grandchildren represent the continuity of the Rajore legacy, carrying forward our traditions and values. This page is dedicated to their laughter, curiosity, and accomplishments. Watch them thrive and keep the Rajore spirit alive for generations to come.</p>
-                
-                <div class="Children">
-                    <div class="Henry's Sons">
-                        <h3>LEON & LIAM</h3>
-                        <p>Two adorable boys from our elder brother—always bringing joy wherever they go.</p>
-                        <img src="images/liam.jpg" alt="Leon and Liam">
-                    </div>
-                    
-                    <div class="Children">
-                        <div class="Linnet's Daughters">
-                            <h3>HADRIAN & FAVOUR</h3>
-                            <p>Sweet angels from Linnet's family. Hadrian holds a special place as our parents' first granddaughter.</p>
-                            <!-- NEW PHOTO COLLAGE -->
-                            <div class="photo-collage">
-                                <img src="images/hadrian.jpg" alt="Hadrian">
-                                <img src="images/Favour.jpg" alt="Favour">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="Children">
-                        <div class="Ann's Son">
-                            <h3>AIDEN</h3> 
-                            <p>This is Aiden—always radiating joy and laughter in every photo.</p>
-                            <img src="images/aiden.jpg" alt="Aiden">   
-                        </div>
-                    </div>
-                    
-                    <div class="Children">
-                        <div class="Emmaculate's Children">
-                            <h3>TALIA & TAIRAN</h3>
-                            <p>Meet Talia and Tairan—beautiful souls whose charm shines right through the picture.</p>
-                            <div class="photo-collage">
-                                <img src="images/TA.jpg" alt="Talia">
-                                <img src="images/Adera.jpg" alt="Adera">
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="Children">
-                        <div class="Selline's Children">
-                            <h3>STANLEY & AURELLIA</h3>
-                            <p>Always full of warmth and smiles—truly ever-welcoming.</p>
-                            <img src="images/father.jpg" alt="Stanley and Aurellia">
-                        </div>
-                    </div>
+        <div class="page-header">
+            <h2>OUR LEGACY IN BLOOM</h2>
+            <p>The grandchildren represent the continuity of the Rajore legacy, carrying forward our traditions and values. This page is dedicated to their laughter, curiosity, and accomplishments.</p>
+        </div>
+        
+        <div class="family-grid">
+            <!-- Leon & Liam -->
+            <div class="family-card">
+                <div class="family-img-container">
+                    <img src="images/liam.jpg" alt="Leon and Liam">
                 </div>
-            </section>
+                <div class="family-info">
+                    <h3>LEON & LIAM</h3>
+                    <p>Two adorable boys from our elder brother—always bringing joy wherever they go.</p>
+                </div>
+            </div>
+            
+            <!-- Hadrian & Favour -->
+            <div class="family-card">
+                <div class="family-info">
+                    <h3>HADRIAN & FAVOUR</h3>
+                    <p>Sweet angels from Linnet's family. Hadrian holds a special place as our parents' first granddaughter.</p>
+                </div>
+                <div class="photo-pair">
+                    <img src="images/hadrian.JPG" alt="Hadrian">
+                    <img src="images/Favour.JPG" alt="Favour">
+                </div>
+            </div>
+            
+            <!-- Aiden -->
+            <div class="family-card">
+                <div class="family-img-container">
+                    <img src="images/aiden.jpg" alt="Aiden">
+                </div>
+                <div class="family-info">
+                    <h3>AIDEN</h3>
+                    <p>Always radiating joy and laughter in every photo.</p>
+                </div>
+            </div>
+            
+            <!-- Talia & Tairan -->
+            <div class="family-card">
+                <div class="family-info">
+                    <h3>TALIA & TAIRAN</h3>
+                    <p>Beautiful souls whose charm shines right through the picture.</p>
+                </div>
+                <div class="photo-pair">
+                    <img src="images/TA.jpg" alt="Talia">
+                    <img src="images/Adera.jpg" alt="Adera">
+                </div>
+            </div>
+            
+            <!-- Stanley & Aurellia -->
+            <div class="family-card">
+                <div class="family-img-container">
+                    <img src="images/Aurellia.jpg" alt="Stanley and Aurellia">
+                </div>
+                <div class="family-info">
+                    <h3>STANLEY & AURELLIA</h3>
+                    <p>Always full of warmth and smiles—truly ever-welcoming.</p>
+                </div>
+            </div>
         </div>
     </div>
     
-    <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="footer-column">
@@ -271,23 +378,15 @@
                 <a href="children.html">Children</a>
                 <a href="grandchildren.html">Grandchildren</a>
             </div>
+            <div class="footer-column">
+                <h3>Family Values</h3>
+                <p>Love • Unity • Respect • Tradition • Joy</p>
+            </div>
         </div>
         <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
     </footer>
     
     <script>
-        {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/images/(.*)", "dest": "/images/$1" }
-  ]
-}
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
             navList.classList.toggle('show');
