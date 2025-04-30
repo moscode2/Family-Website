@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Rajore Family</title>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -22,6 +22,7 @@
       padding: 1.5rem;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     h1 {
@@ -237,15 +238,17 @@
 <body>
   <header>
     <h1>THE RAJORE FAMILY</h1>
-        <nav>
-            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-            <ul id="nav-list">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="parents.html">PARENTS</a></li>
-                <li><a href="children.html" class="active">CHILDREN</a></li>
-                <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
-            </ul>
-        </nav>
+    <nav>
+      <div class="menu-icon" id="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul id="nav-list">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="parents.html">PARENTS</a></li>
+        <li><a href="children.html">CHILDREN</a></li>
+        <li><a href="grandchildren.html">GRANDCHILDREN</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="description-section">
@@ -297,15 +300,27 @@
   </footer>
 
   <script>
-    function toggleMenu() {
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuIcon = document.getElementById('menu-icon');
       const navList = document.getElementById('nav-list');
-      navList.classList.toggle('show');
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const currentPage = location.pathname.split('/').pop();
+      
+      // Toggle menu when hamburger icon is clicked
+      menuIcon.addEventListener('click', function() {
+        navList.classList.toggle('show');
+      });
+      
+      // Close menu when a nav item is clicked (for mobile)
       const navLinks = document.querySelectorAll('nav a');
-
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            navList.classList.remove('show');
+          }
+        });
+      });
+      
+      // Highlight current page link
+      const currentPage = location.pathname.split('/').pop();
       navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('active');
