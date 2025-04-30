@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rajore Family - Children</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,17 +53,12 @@
         }
 
         .menu-icon {
-display: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: black; /* Changed from white to black */
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 101;
-  background-color: rgba(255, 255, 255, 0.7); /* Added light background for contrast */
-  padding: 5px 10px;
-  border-radius: 4px;
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
         }
 
         .children-container {
@@ -196,7 +191,9 @@ display: none;
     </header>
     
     <nav>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
         <ul id="nav-list">
             <li><a href="index.html">HOME</a></li>
             <li><a href="parents.html">PARENTS</a></li>
@@ -226,7 +223,7 @@ display: none;
                 <div class="child-card">
                     <h3>ANN</h3>
                     <p>Third born, a skilled lab technician contributing to the field of medical sciences.</p>
-                    <img src="images/nyar.jpg" alt="Ann">
+                    <img src="images/nyar.JPG" alt="Ann">
                 </div>
                 
                 <div class="child-card">
@@ -278,50 +275,39 @@ display: none;
                 <a href="children.html">Children</a>
                 <a href="grandchildren.html">Grandchildren</a>
             </div>
+            <div class="footer-column">
+                <h3>Family Values</h3>
+                <p>Love • Unity • Respect • Tradition • Joy</p>
+            </div>
         </div>
         <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> THE RAJORE FAMILY. All rights reserved.</p>
     </footer>
     
     <script>
-        {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/images/(.*)", "dest": "/images/$1" }
-  ]
-}
        document.addEventListener('DOMContentLoaded', function() {
-      const menuIcon = document.getElementById('menu-icon');
-      const navList = document.getElementById('nav-list');
-      
-      // Toggle menu when hamburger icon is clicked
-      menuIcon.addEventListener('click', function() {
-        navList.classList.toggle('show');
-      });
-      
-      // Close menu when a nav item is clicked (for mobile)
-      const navLinks = document.querySelectorAll('nav a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 768) {
-            navList.classList.remove('show');
-          }
+            const menuIcon = document.getElementById('menu-icon');
+            const navList = document.getElementById('nav-list');
+            
+            menuIcon.addEventListener('click', function() {
+                navList.classList.toggle('show');
+            });
+            
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navList.classList.remove('show');
+                    }
+                });
+            });
+            
+            const currentPage = location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
-      });
-      
-      // Highlight current page link
-      const currentPage = location.pathname.split('/').pop();
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-          link.classList.add('active');
-        }
-      });
-    });
     </script>
 </body>
 </html>
