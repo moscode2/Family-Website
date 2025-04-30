@@ -278,6 +278,18 @@
     </footer>
     
     <script>
+        {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" }
+  ]
+}
        document.addEventListener('DOMContentLoaded', function() {
       const menuIcon = document.getElementById('menu-icon');
       const navList = document.getElementById('nav-list');
